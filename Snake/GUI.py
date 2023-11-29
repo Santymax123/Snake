@@ -34,4 +34,6 @@ class Display:
                     pygame.draw.rect(self.dis, (WHITE), [x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE])
                 elif self.board.squares[x][y].getType() == squareType.FOOD:
                     pygame.draw.rect(self.dis, (WHITE), [x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE])
+                elif self.board.squares[x][y].getType() == squareType.SNAKE:
+                    pygame.draw.rect(self.dis, (WHITE), [x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE])
         pygame.display.update()

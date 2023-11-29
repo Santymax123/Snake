@@ -8,6 +8,7 @@ class squareType(Enum):
     EMPTY = 0
     WALL = 1
     FOOD = 2
+    SNAKE = 3
 
 class Square:
     def __init__(self, x, y):

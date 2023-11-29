@@ -1,3 +1,4 @@
+# Board.py holds and makes changes to the gamestate
 from Square import Square, squareType
 
 class Board:
