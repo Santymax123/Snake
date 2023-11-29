@@ -5,6 +5,8 @@ class Board:
     def __init__(self, width, height):
         self.width = width
         self.height = height
+
+        # Create a 2D array of empty squares
         self.squares = [[0 for x in range(width)] for y in range(height)] # Currently initilizing filled with 0's then setting to squares - has to be a better way to do this
         for x in range(width):
             for y in range(height):
@@ -14,9 +16,9 @@ class Board:
 
 
     def initialise(self):
-        # Need to place random food
-        # Also need to place snake
-        # Chuyangliu also has a else statement to initialise everything else as empty but i believe that unnescesary
+        # TODO Need to place random food
+        # TODO need to place snake
+        # TODO Chuyangliu also has an else statement to initialise everything else as empty but i believe that unnescesary
         for x in range(self.width):
             for y in range(self.height):
                 if (x == 0 or x == self.width - 1 or y == 0 or y == self.height - 1):
