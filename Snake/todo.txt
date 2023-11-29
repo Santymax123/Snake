@@ -1,0 +1,3 @@
+fix rendering so that all walls are where they are meant to be
+impliment snake
+impliment moving snake
