@@ -1,3 +1,7 @@
+# Original try at snake using https://www.edureka.co/blog/snake-game-with-pygame/ as a guide
+# Generates food randomly and snake can be moved, but is not even nearly finished
+# Decided I wanted to try a more OOP approach, so have restarted and left this code for now
+
 import pygame
 from time import sleep
 import random
