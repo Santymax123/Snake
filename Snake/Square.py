@@ -6,22 +6,25 @@ from enum import Enum, unique
 class squareType(Enum):
 
     EMPTY = 0
-    WALL = 1
-    FOOD = 2
+    # To be used for head. the OPPOSITE can also be used for tail 
+    UP = 1
+    DOWN = -1
+    RIGHT = 2
+    LEFT = -2
+
+    WALL = 10
+    FOOD = 11
     # Remove eventually
     SNAKE = 3
-    # To be used for head. the OPPOSITE can also be used for tail 
-    UP = 4
-    DOWN = 5
-    LEFT = 6
-    RIGHT = 7
     # For anything between head and tail - each multi-direction one can be used for travelling both directions (see Snake Rendering.PNG
-    BODY_VERTICAL = 8
-    BODY_HORIZONTAL = 9
-    BODY_UR = 10
-    BODY_DR = 11
-    BODY_DL = 12
-    BODY_UL = 13
+    BODY_VERTICAL = 100
+    BODY_HORIZONTAL = 101
+    BODY_UR = 102
+    BODY_DR = 103
+    BODY_DL = 104
+    BODY_UL = 105
+
+# class is_snake(Enum):
     
     
     
@@ -44,6 +47,7 @@ class Square:
 
     def getY(self):
         return self.y
+
 
 '''
 methods that chuyangliu implimented - I dont need these i think
