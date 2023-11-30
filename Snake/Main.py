@@ -2,26 +2,33 @@
 
 from GUI import Display
 from Board import Board
-# Only being used to debug currently
-from Square import Square, squareType
-import time
 
+import pygame
+from Square import Square, squareType
+
+GAME_SPEED = 1 # FPS
 
 # Test to make sure GUI is updating
-def testGUI():
+def runGame():
     for x in range(board.getWidth()):
         for y in range(board.getHeight()):
             board.setSquare(x, y, squareType.FOOD)
-            display.update()
-            time.sleep(1)
+            game.update()
+            clock.tick(1)
+            input = game.get_input
+            next_square = board.next_square(input)
+            board.get_snake().move_snake(next_square)
+
+
+        
 
 
 
 
 board = Board(10, 10)
-display = Display(board)
-display.update()
-testGUI()
+game = Display(board)
+clock = pygame.time.Clock()
+runGame()
 
 
 
