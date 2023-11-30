@@ -23,6 +23,8 @@ class squareType(Enum):
     BODY_DR = 103
     BODY_DL = 104
     BODY_UL = 105
+
+# class is_snake(Enum):
     
     
     

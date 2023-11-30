@@ -1,16 +1,11 @@
 Text file to track current/future tasks
 
-1.  Snake class
-        dequeu
-2.  Moving the snake
-3.  Visualising the snake
-4.  Grow snake on food
-5.  Lose game on collision
-        Wall
-        Body
-6.  Use naming conventions for variables AND functions
-7.  Algorithms
-8.  Create GitHub readme and correctly credit
+1. Move snake movement logic solely into Snake class, remove snake imports from board, add board imports to snake
+1. Make snake move in the same direction as previous
+4. Create random food on eating food
+6. Use naming conventions for variables AND functions
+7. Algorithms
+8. Create GitHub readme and correctly credit
         https://kychin.netlify.app/snake-blog/hamiltonian-cycle/
         https://johnflux.com/2015/05/02/nokia-6110-part-3-algorithms/
         https://github.com/chuyangliu/snake

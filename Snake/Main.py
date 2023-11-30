@@ -10,27 +10,28 @@ GAME_SPEED = 1 # FPS
 
 # Test to make sure GUI is updating
 def runGame():
-    for x in range(board.getWidth()):
-        for y in range(board.getHeight()):
-            board.setSquare(x, y, squareType.FOOD)
-            game.update()
-            clock.tick(1)
-            input = game.get_input
-            next_square = board.next_square(input)
-            board.get_snake().move_snake(next_square)
+    # loop to try get some display updates
+    snake_dead = False
+    while (not snake_dead):
+        # Updates display
+        game.update()
+        # Waits one second
+        clock.tick(GAME_SPEED)
+        # 
+        input = game.get_input()
+        next_square = board.next_square(input)
+        board.get_snake().move_snake(next_square)
+        if board.get_snake().is_dead():
+            game.game_over()
+            clock.tick(GAME_SPEED / 2)
+            snake_dead = True
 
-
-        
-
-
-
+            
 
 board = Board(10, 10)
 game = Display(board)
 clock = pygame.time.Clock()
 runGame()
-
-
-
-
+pygame.quit()
+quit()
 

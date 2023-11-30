@@ -7,7 +7,6 @@ class Board:
 
     def __init__(self, width, height):
         # TODO Need to place random food
-        # TODO need to place snake
         # TODO Chuyangliu also has an else statement to initialise everything else as empty but i believe that unnescesary
         self.width = width
         self.height = height
@@ -39,15 +38,15 @@ class Board:
         #    nextsquare = self.squares[self.snake.get_head().getX()][self.snake.get_head().getX()]
 
         if direction == "UP":
-            next_square = self.squares[self.snake.get_head().getX()][self.snake.get_head().getY() + 1]
-        elif direction == "DOWN":
             next_square = self.squares[self.snake.get_head().getX()][self.snake.get_head().getY() - 1]
+        elif direction == "DOWN":
+            next_square = self.squares[self.snake.get_head().getX()][self.snake.get_head().getY() + 1]
         elif direction == "LEFT":
-            next_square = self.squares[self.snake.get_head().getX() + 1][self.snake.get_head().getY()]
-        elif direction == "RIGHT":
             next_square = self.squares[self.snake.get_head().getX() - 1][self.snake.get_head().getY()]
+        elif direction == "RIGHT":
+            next_square = self.squares[self.snake.get_head().getX() + 1][self.snake.get_head().getY()]
         else:
-            next_square = self.squares[self.snake.get_head().getX()][self.snake.get_head().getY()]
+            next_square = self.squares[self.snake.get_head().getX()][self.snake.get_head().getY() - 1]
         
         return next_square
         
@@ -59,7 +58,8 @@ class Board:
             for y in range(self.height):
                 if self.squares[x][y].getType() == squareType.EMPTY:
                     empty_squares.append(self.squares[x][y])
-        random.choice(empty_squares).setType(squareType.FOOD)
+        food_square = random.choice(empty_squares)
+        food_square.setType(squareType.FOOD)
     
     def getWidth(self):
         return self.width

@@ -12,15 +12,17 @@ class Snake:
 
     def move_snake(self, next_square):
         # next square is going to be infront, left, or right to the snake
-        if (next_square.getType == squareType.WALL or next_square.getType == squareType.SNAKE):
+        if (next_square.getType() == squareType.WALL or next_square.getType() == squareType.SNAKE):
             self.dead = True
             return
-        if (next_square.getType == squareType.FOOD):
+        if (next_square.getType() == squareType.FOOD):
             self.add_square(next_square)
             # TODO Make sure to add food here
         else:
             self.add_square(next_square)
             self.remove_tail()
+        # TODO remove print statement later
+
             
     def add_square(self, next_square):
         self.snake_queue.appendleft(next_square)
