@@ -8,6 +8,7 @@ class Snake:
 
     def __init__(self, start_square):
         self.snake_queue = deque([start_square])
+        start_square.setType(SNAKE)
 
     def move_snake(self, next_square, ate_food):
         if ate_food:
