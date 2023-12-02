@@ -6,41 +6,45 @@ from enum import Enum, unique
 class squareType(Enum):
 
     EMPTY = 0
-    # To be used for head. the OPPOSITE can also be used for tail 
-    UP = 1
-    DOWN = -1
-    RIGHT = 2
-    LEFT = -2
-
-    WALL = 10
-    FOOD = 11
-    # Remove eventually
+    WALL = 1
+    FOOD = 2
     SNAKE = 3
-    # For anything between head and tail - each multi-direction one can be used for travelling both directions (see Snake Rendering.PNG
-    BODY_VERTICAL = 100
-    BODY_HORIZONTAL = 101
-    BODY_UR = 102
-    BODY_DR = 103
-    BODY_DL = 104
-    BODY_UL = 105
-
-# class is_snake(Enum):
     
+    
+
+class snake_type(Enum):
+    NONE = 0
+    END_UP = 1
+    END_DOWN = 2
+    END_RIGHT = 3
+    END_LEFT = 4
+    BODY_VERTICAL = 5
+    BODY_HORIZONTAL = 6
+    BODY_UR = 7
+    BODY_DR = 8
+    BODY_DL = 9
+    BODY_UL = 10
     
     
 
 class Square:
     def __init__(self, x, y):
-        # Nothing in square on initial creation TODO is this the best way to do this?
         self.type = squareType.EMPTY
+        self.snake_type = snake_type.NONE
         self.x = x
         self.y=y
+
+    def setType(self, square_type):
+        self.type = square_type
+
+    def set_snake_type(self, snake_type):
+        self.snake_type = snake_type
 
     def getType(self):
         return self.type
 
-    def setType(self, type):
-        self.type = type
+    def get_snake_type(self):
+        return self.snake_type
 
     def getX(self):
         return self.x

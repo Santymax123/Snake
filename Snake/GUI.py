@@ -1,6 +1,7 @@
 # GUI.py Provides visualisation for the game
 from Square import Square, squareType
 import pygame
+from Direction import Direction
 
 # Window/Snake/Block size setter
 BLOCK_SIZE = 50
@@ -40,7 +41,7 @@ class Display:
 
     # Should return the most recent input (or quit)
     def get_input(self):
-        input = ""
+        input = Direction.NONE
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -48,15 +49,13 @@ class Display:
                 quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    input = "UP"
+                    input = Direction.UP
                 elif event.key == pygame.K_DOWN:
-                    input = "DOWN"
+                    input = Direction.DOWN
                 elif event.key == pygame.K_LEFT:
-                    input = "LEFT"
+                    input = Direction.LEFT
                 elif event.key == pygame.K_RIGHT:
-                    input = "RIGHT"
-                else:
-                    input = "NONE"
+                    input = Direction.RIGHT
         return input
 
     def game_over(self):
