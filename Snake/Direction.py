@@ -1,5 +1,3 @@
-
-
 from enum import Enum
 
 class Direction(Enum):
@@ -8,6 +6,7 @@ class Direction(Enum):
     DOWN = 2
     LEFT = 3
     RIGHT = 4
+
 
 
     def opposite(direction):

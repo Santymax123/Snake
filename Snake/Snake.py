@@ -44,12 +44,9 @@ class Snake:
     # Will not return a square behind the snake (snake cant write over itself)
     def get_next_square(self, new_direction):
 
-        next_square = 0 # TODO should i initialize it as none???
+        next_square = None
 
-        # TODO should i combine these 2 if statements?
-        if self.current_direction == Direction.opposite(new_direction): # TODO is this good practise? 
-            new_direction = self.current_direction
-        elif new_direction == Direction.NONE:
+        if self.current_direction == Direction.opposite(new_direction) or new_direction == Direction.NONE:
             new_direction = self.current_direction
         
         if new_direction == Direction.UP:

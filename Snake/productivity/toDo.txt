@@ -1,18 +1,14 @@
 Text file to track current/future tasks
 
-
-
-
-1. Use new branch for fixing naming conventions for variables AND functions
-2. Create new branch for rendering snake better
+1. Create new branch for rendering snake better
 2. create new branch to fix the board not working when not a square (ie when calling Board(10, 20))
 3. Leave board state visible after game over
-2. Algorithms
-3. Create GitHub readme and correctly credit
+4. Algorithms
+5. Create GitHub readme and correctly credit
         https://kychin.netlify.app/snake-blog/hamiltonian-cycle/
         https://johnflux.com/2015/05/02/nokia-6110-part-3-algorithms/
         https://github.com/chuyangliu/snake
-4.  Check files for TODO's for my ramblings on possible improvements
+6.  Check files for TODO's for my ramblings on possible improvements
         https://peps.python.org/pep-0008/#function-and-variable-names
 
 

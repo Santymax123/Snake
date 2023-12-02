@@ -30,29 +30,27 @@ class Display:
     # Loops over the entire board and renders each square
     # Should be called once each frame
     def update(self):
+
         self.dis.fill((0, 0, 0))
+
         for x in range(self.board.get_width()):
             for y in range(self.board.get_height()):
-                if self.board.squares[x][y].get_type() == square_type.EMPTY:
-                    pygame.draw.rect(self.dis, (BLACK), [x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE])
-                elif self.board.squares[x][y].get_type() == square_type.WALL:
-                    pygame.draw.rect(self.dis, (WHITE), [x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE])
-                elif self.board.squares[x][y].get_type() == square_type.FOOD:
-                    pygame.draw.rect(self.dis, (RED), [x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE])
-                elif self.board.squares[x][y].get_type() == square_type.SNAKE:
-                    pygame.draw.rect(self.dis, (GREEN), [x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE])
+                self.draw_block(self.board.get_squares()[x][y])
+
         pygame.display.update()
 
 
 
     # Should return the most recent input (or quit)
     def get_input(self):
+
         input = Direction.NONE
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
                     input = Direction.UP
@@ -62,13 +60,27 @@ class Display:
                     input = Direction.LEFT
                 elif event.key == pygame.K_RIGHT:
                     input = Direction.RIGHT
+
         return input
 
-        
+
 
     def game_over(self):
         self.dis.fill(WHITE)
         message = pygame.font.SysFont(None, 30).render("You Lost!", True, RED)
         self.dis.blit(message, [self.display_width / 3, self.display_height / 2])
         pygame.display.update()
+
+
+    def draw_block(self, square):
+        x_loc = square.get_x() * BLOCK_SIZE
+        y_loc = square.get_y() * BLOCK_SIZE
+        if square.get_type() == square_type.EMPTY:
+            pygame.draw.rect(self.dis, (BLACK), [x_loc, y_loc, BLOCK_SIZE, BLOCK_SIZE])
+        elif square.get_type() == square_type.WALL:
+            pygame.draw.rect(self.dis, (WHITE), [x_loc, y_loc, BLOCK_SIZE, BLOCK_SIZE])
+        elif square.get_type() == square_type.FOOD:
+            pygame.draw.rect(self.dis, (RED), [x_loc, y_loc, BLOCK_SIZE, BLOCK_SIZE])
+        elif square.get_type() == square_type.SNAKE:
+            pygame.draw.rect(self.dis, (GREEN), [x_loc, y_loc, BLOCK_SIZE, BLOCK_SIZE])
         

@@ -1,21 +1,22 @@
 # GameLoop is currently being used to test that my code works, will eventually be turned into something like Game.py that handles gamestate etc
 # Run this file to play snake!
 
+import pygame
+
 from GUI import Display
 from Board import Board
 from Snake import Snake
 
-import pygame
-
 GAME_SPEED = 5 # FPS
-BOARD_WIDTH = 10
-BOARD_HEIGHT = 10
+BOARD_WIDTH = 15
+BOARD_HEIGHT = 15
 
 
 # Loop that runs all game logic and ends when the snake dies
 def Game_Loop():
 
     snake_dead = False
+
     while (not snake_dead):
 
         display.update()
@@ -27,6 +28,7 @@ def Game_Loop():
             display.game_over()
             clock.tick(5)
             snake_dead = True
+
 
 
 # Create all the objects required for the game
