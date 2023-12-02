@@ -1,19 +1,24 @@
 Text file to track current/future tasks
 
-1. Move snake movement logic solely into Snake class, remove snake imports from board, add board imports to snake
-1. Make snake move in the same direction as previous
-4. Create random food on eating food
-6. Use naming conventions for variables AND functions
-7. Algorithms
-8. Create GitHub readme and correctly credit
+
+
+
+1. Use new branch for fixing naming conventions for variables AND functions
+2. create new branch to fix the board not working when not a square (ie when calling Board(10, 20))
+3. Leave board state visible after game over
+2. Algorithms
+3. Create GitHub readme and correctly credit
         https://kychin.netlify.app/snake-blog/hamiltonian-cycle/
         https://johnflux.com/2015/05/02/nokia-6110-part-3-algorithms/
         https://github.com/chuyangliu/snake
-9.  Check files for TODO's for my ramblings on possible improvements
+4.  Check files for TODO's for my ramblings on possible improvements
         https://peps.python.org/pep-0008/#function-and-variable-names
 
 
-board handles collisions BEFORE moving snake 
+Currently GUI takes last input per frame, is this good?
+ie. if snake is travelling left, and within one frame i press down right, 
+the snake will continue moving left because the down is overrode by the right
+and the snake cant move right because right is opposite to left
 
 
 
