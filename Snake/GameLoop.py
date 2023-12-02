@@ -1,38 +1,43 @@
-# Main.py is currently being used to test that my code works, will eventually be turned into something like Game.py that handles gamestate etc
+# GameLoop is currently being used to test that my code works, will eventually be turned into something like Game.py that handles gamestate etc
+# Run this file to play snake!
 
 from GUI import Display
 from Board import Board
-
-import pygame
-from Square import Square, squareType
 from Snake import Snake
 
-GAME_SPEED = 5 # FPS
+import pygame
 
-# Test to make sure GUI is updating
-def runGame():
-    # loop to try get some display updates
+GAME_SPEED = 5 # FPS
+BOARD_WIDTH = 10
+BOARD_HEIGHT = 10
+
+
+# Loop that runs all game logic and ends when the snake dies
+def Game_Loop():
+
     snake_dead = False
     while (not snake_dead):
-        # Updates display
+
         display.update()
-        # Waits one second
         clock.tick(GAME_SPEED)
-        # 
         input = display.get_input()
         snake.move_snake(input)
+        
         if snake.is_dead():
             display.game_over()
-            clock.tick(GAME_SPEED / 2)
+            clock.tick(5)
             snake_dead = True
 
-            
 
-board = Board(10, 10)
+# Create all the objects required for the game
+board = Board(BOARD_WIDTH, BOARD_HEIGHT)
 snake = Snake(board)
 display = Display(board)
 clock = pygame.time.Clock()
-runGame()
+
+Game_Loop()
+
+# Close GUI
 pygame.quit()
 quit()
 

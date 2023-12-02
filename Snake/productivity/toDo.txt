@@ -4,6 +4,7 @@ Text file to track current/future tasks
 
 
 1. Use new branch for fixing naming conventions for variables AND functions
+2. Create new branch for rendering snake better
 2. create new branch to fix the board not working when not a square (ie when calling Board(10, 20))
 3. Leave board state visible after game over
 2. Algorithms
